@@ -1,0 +1,12 @@
+version: '3'
+services:
+  frontend:
+    container_name: "projeto-galeria"
+    image: node:10.16.0-alpine
+    user: "node"
+    volumes:
+      - .:/home/node/app
+    working_dir: /home/node/app  
+    command: sh -c "npm i && npm start"
+    ports:
+      - 9000:9000
