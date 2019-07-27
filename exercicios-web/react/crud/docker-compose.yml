@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  backend:
+    container_name: "backend-container"
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./backend:/usr/app
+    command: sh -c "yarn install && yarn start"
+  frontend:
+    container_name: "frontend-container"
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/usr/app
+    depends_on:
+      - backend
+    command: sh -c "yarn install && yarn start"
