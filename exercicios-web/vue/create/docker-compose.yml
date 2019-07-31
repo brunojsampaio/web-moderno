@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  app:
+    container_name: "app-vue"
+    build: .
+    command: sh -c "vue create -d calculator"
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/usr/app
