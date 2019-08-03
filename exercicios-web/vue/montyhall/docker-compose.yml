@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  app:
+    container_name: "app-montyhall"
+    build: .
+    command: sh -c "yarn install && yarn serve"
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/usr/app
